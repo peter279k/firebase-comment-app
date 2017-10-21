@@ -1,0 +1,79 @@
+<!doctype html>
+<!--
+Created using JS Bin
+http://bin.webduino.io
+
+Copyright (c) 2017 by anonymous (http://bin.webduino.io/zeset/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Webduino Blockly Demo 05</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://webduino.io/components/webduino-js/dist/webduino-all.min.js"></script>
+  <script src="https://blockly.webduino.io/webduino-blockly.js"></script>
+  <script src="https://blockly.webduino.io/lib/firebase.js"></script>
+  <script src="https://blockly.webduino.io/lib/runtime.min.js"></script>
+<style id="jsbin-css">
+.db5 {
+  font-size: 24px;
+  outline: none;
+  margin: 0 10px 10px 0;
+  pointer-events: auto!important;
+}
+
+button:hover {
+  box-shadow: 2px 2px 5px #888;
+}
+</style>
+</head>
+
+<body>
+  <h1>Firebase基本操作板</h1>
+  <div><button id="demo-area-05-btn1" class="db5">按鈕 1</button>
+  <button id="demo-area-05-btn2" class="db5">按鈕 2</button>
+  <button id="demo-area-05-btn3" class="db5">按鈕 3</button>
+  <button id="demo-area-05-btn4" class="db5">按鈕 4</button>
+  <button id="demo-area-05-btn5" class="db5">按鈕 5</button></div>
+<script id="jsbin-javascript">
+var myFirebase;
+
+
+myFirebase = new Firebase("https://peterliwebsite.firebaseio.com");
+document.getElementById("demo-area-05-btn1").addEventListener("click",function(){
+  myFirebase.push({
+    msg:'test123',
+    track:1
+  });
+});
+document.getElementById("demo-area-05-btn2").addEventListener("click",function(){
+  myFirebase.push({
+    msg:'Welcome',
+    track:2
+  });
+});
+document.getElementById("demo-area-05-btn3").addEventListener("click",function(){
+  myFirebase.push({
+    msg:'Welcomebutton3',
+    track:3
+  });
+});
+document.getElementById("demo-area-05-btn4").addEventListener("click",function(){
+  myFirebase.push({
+    msg:'Welcomebutton4',
+    track:4
+  });
+});
+document.getElementById("demo-area-05-btn5").addEventListener("click",function(){
+  myFirebase.set({});
+  console.log("clear ok");
+});
+
+</script>
+</body>
+
